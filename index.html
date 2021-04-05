@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTIN SPRING BOOT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css"/>
+</head>
+<div class="container">
+    <h1>TESTING SPRING BOOT</h1>
+<form id="main-form">
+    <div class="form-group">
+    <label for="name">Type your name</label>
+    <input id="name" type="text"></input>
+    <label for="pass">Type your password</label>
+    <input id="pass" type="password"></input>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+<button type="button" id="showAll" class="btn btn-primary" onClick="showAll();">Show All users</button>
+<div id="result">
+</div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <script>
+   
+     let showdata=(data)=>{
+         $('#result').append('<p>'+data+'</p>');
+     }
+     let getUsers=()=>{
+          
+     }
+     let showAll=()=>{
+     fetch('https://testeatzen.herokuapp.com/users')
+         .then(resp=>resp.json())
+         .then(data=>{console.log(data);data.forEach(dat=>showdata(dat.name + ' ' +dat.lastname + ' '+ dat.email + ' ' + dat.password))})
+         .catch(error=>console.log(error))
+     }
+ 
+  </script>
+</body>
+</html>
