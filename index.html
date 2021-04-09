@@ -40,6 +40,11 @@
          .then(data=>{console.log(data);data.forEach(dat=>showdata(dat.firstname + ' ' +dat.lastname + ' '+ dat.email + ' ' + dat.password))})
          .catch(error=>console.log(error))
      }
+    
+     fetch('https://testeatzen.herokuapp.com/products')
+         .then(resp=>resp.json())
+         .then(data=>{console.log(data);data.forEach(dat=>showdata(dat.title + ' ' +dat.description + ' '+ dat.category.name + ' ' + dat.price))})
+         .catch(error=>console.log(error))
    
  
   </script>
