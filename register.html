@@ -71,7 +71,7 @@ $('#sendThis').on('click',()=>{
     zip:$('#inputZip').val() 
 }
 fetch('https://testeatzen.herokuapp.com/users/register',{method: 'POST',
-headers: new Headers({'Access-Control-Allow-Origin': '*', "Content-Type":'application/json'}),
+headers: new Headers({ "Content-Type":'application/json'}),
  body:JSON.stringify(user)}).then(resp=>console.log(resp))
 })
 
