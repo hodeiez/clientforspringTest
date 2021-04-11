@@ -58,28 +58,24 @@
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
 $('#sendThis').on('click',()=>{
     let user={firstName:$('#inputName').val(),
     lastName:$('#inputLastname').val(),
-    email:$('inputEmail4').val(),
+    email:$('#inputEmail4').val(),
     password:$('#inputPassword4').val(),
     telephone:$('#inputPhone').val(),
     address:$('#inputAddress').val(),
     city:$('#inputCity').val(),
     zip:$('#inputZip').val() 
-
 }
-    fetch('https://testeatzen.herokuapp.com/users/register',{
-        headers: {
-                
-                'Content-Type': "application/json;"
-            },
-       method:'post',body: JSON.stringify(user)
+fetch('https://testeatzen.herokuapp.com/users',{method: 'POST',
+headers: new Headers({"Content-Type":'text/plain'}),
+ body:JSON.stringify(user)}).then(resp=>console.log(resp))
+})
 
-    }).then(resp=>console.log(resp))
-    
-    console.log("submitting!")})
+
   </script>
 </body>
 </html>
