@@ -38,7 +38,7 @@
      let showAll=()=>{
      fetch('https://testeatzen.herokuapp.com/users')
          .then(resp=>resp.json())
-         .then(data=>{console.log(data);data.forEach(dat=>showdata(dat.firstName + ' ' +dat.lastName + ' '+ dat.email + ' ' + dat.password))})
+         .then(data=>{console.log(data);data.forEach(dat=>showdata(dat.id + ' ' + dat.firstName + ' ' +dat.lastName + ' '+ dat.email + ' ' + dat.password))})
          .catch(error=>console.log(error))
      }
     
