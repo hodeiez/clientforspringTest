@@ -70,7 +70,7 @@ $('#sendThis').on('click',()=>{
     city:$('#inputCity').val(),
     zip:$('#inputZip').val() 
 }
-fetch('https://testeatzen.herokuapp.com/users',{method: 'POST',
+fetch('https://testeatzen.herokuapp.com/users/register',{method: 'POST',
 headers: new Headers({'Access-Control-Allow-Origin': '*', "Content-Type":'application/json'}),
  body:JSON.stringify(user)}).then(resp=>console.log(resp))
 })
