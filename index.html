@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css"/>
 </head>
 <div class="container">
+    <a href="register.html">go to register to add a customer</a>
     <h1>TESTING SPRING BOOT</h1>
 <form id="main-form">
     <div class="form-group">
@@ -37,7 +38,7 @@
      let showAll=()=>{
      fetch('https://testeatzen.herokuapp.com/users')
          .then(resp=>resp.json())
-         .then(data=>{console.log(data);data.forEach(dat=>showdata(dat.firstname + ' ' +dat.lastname + ' '+ dat.email + ' ' + dat.password))})
+         .then(data=>{console.log(data);data.forEach(dat=>showdata(dat.firstName + ' ' +dat.lastName + ' '+ dat.email + ' ' + dat.password))})
          .catch(error=>console.log(error))
      }
     

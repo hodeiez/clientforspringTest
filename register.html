@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container">
+    <form id="registerForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Name</label>
+              <input type="text" class="form-control" id="inputName" placeholder="firstname">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputLastName">Lastname</label>
+                <input type="text" class="form-control" id="inputLastname" placeholder="lastname">
+            </div>
+          </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPhone">Phone</label>
+              <input type="text" class="form-control" id="inputPhone" placeholder="phone">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="address">
+            </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+        </div>
+        
+        <button type="button" id="sendThis" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <script>
+$('#sendThis').on('click',()=>{
+    let user={firstName:$('#inputName').val(),
+    lastName:$('#inputLastname').val(),
+    email:$('inputEmail4').val(),
+    password:$('#inputPassword4').val(),
+    telephone:$('#inputPhone').val(),
+    address:$('#inputAddress').val(),
+    city:$('#inputCity').val(),
+    zip:$('#inputZip').val() 
+
+}
+    fetch('https://testeatzen.herokuapp.com/users/register',{
+        headers: {
+                
+                'Content-Type': "application/json;"
+            },
+       method:'post',body: JSON.stringify(user)
+
+    }).then(resp=>console.log(resp))
+    
+    console.log("submitting!")})
+  </script>
+</body>
+</html>
